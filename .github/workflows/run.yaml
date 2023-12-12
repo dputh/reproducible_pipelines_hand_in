@@ -23,3 +23,9 @@ jobs:
         /github/workspace/shared_folder:/home/housing/shared_folder:rw 
         chickens_image
 
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: housing_output_${{ github.sha }}
+        path: /github/workspace/shared_folder/
+
