@@ -21,5 +21,5 @@ jobs:
       run: >
         docker run --rm --name chicken_coop -v 
         /github/workspace/shared_folder:/home/housing/shared_folder:rw 
-        chicken_output
+        chickens_image
 
