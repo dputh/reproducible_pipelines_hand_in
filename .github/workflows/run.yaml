@@ -20,7 +20,7 @@ jobs:
     - name: Docker Run Action
       run: >
         docker run --rm --name chicken_coop -v 
-        /github/workspace/shared_folder:/home/housing/shared_folder:rw 
+        /github/workspace/shared_folder:/home/chickens/shared_folder:rw 
         chickens_image
 
 
