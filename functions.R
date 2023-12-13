@@ -3,7 +3,7 @@ read_data <- function(){
 }
 
 
-make_plot <-function(){
+make_plot <-function(data){
   p <- ggplot(data, aes(x = Height, fill = Gender)) +
     geom_histogram(bins = 30, position = 'identity', alpha = 0.6) +
     labs(title = 'Distribution of Heights by Gender', x = 'Height', y = 'Count') +
