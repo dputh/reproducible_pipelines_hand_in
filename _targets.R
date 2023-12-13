@@ -10,6 +10,6 @@ list(
   ),
   tar_target(
     plot,
-    make_plot()
+    make_plot(data)
   )
 )
