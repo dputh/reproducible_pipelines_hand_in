@@ -1,4 +1,5 @@
 read_data <- function(){
+  data <- read.csv('weight-height.csv')
   return(read.csv('weight-height.csv'))
 }
 
