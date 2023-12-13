@@ -17,20 +17,17 @@ jobs:
     - name: Build the Docker image
       run: docker build -t chickens_image .
 
-
-
-
       
     - name: Docker Run Action
       run: >
         docker run --rm --name chicken_coop -v 
-        /github/workspace/shared_folder:/home/chickens/shared_folder:rw 
+        /github/workspace/shared_folder:/home/graphs/shared_folder:rw 
         chickens_image
 
     - name: List Directory Contents
       run: ls -R /github/workspace/shared_folder/
 
-      
+
     - uses: actions/upload-artifact@v3
       with:
         name: chicken_output_${{ github.sha }}

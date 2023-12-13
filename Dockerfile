@@ -14,7 +14,7 @@ COPY . /usr/src/app
 RUN R -e "renv::restore()"
 
 # Create a directory to store the graphs
-RUN mkdir -p /home/graphs
+RUN mkdir -p /home/graphs/shared_folder
 
 # Automatically run the targets pipeline when the container starts
 CMD ["Rscript", "-e", "targets::tar_make()"]
