@@ -15,14 +15,14 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Build the Docker image
-      run: docker build -t chickens_image .
+      run: docker build -t image .
 
       
     - name: Docker Run Action
       run: >
-        docker run --rm --name chicken_coop -v 
+        docker run --rm --name container -v 
         /github/workspace/shared_folder:/home/graphs/shared_folder:rw 
-        chickens_image
+        image
 
     - name: List Directory Contents
       run: ls -R /github/workspace/shared_folder/
@@ -30,6 +30,6 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: chicken_output_${{ github.sha }}
+        name: output_${{ github.sha }}
         path: /github/workspace/shared_folder/
 
