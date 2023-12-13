@@ -1,10 +1,20 @@
-FROM python:3.11
+# Use an official R runtime as a parent image
+FROM r-base:latest
 
+# Set the working directory in the container to /usr/src/app
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+# Install the renv package
+RUN R -e "install.packages('renv')"
 
-COPY . .
+# Copy the local files into the container
+COPY . /usr/src/app
 
-CMD [ "python", "./script.py" ]
+# Restore the R environment using the renv.lock file
+RUN R -e "renv::restore()"
+
+# Create a directory to store the graphs
+RUN mkdir -p /home/graphs
+
+# Automatically run the targets pipeline when the container starts
+CMD ["Rscript", "-e", "targets::tar_make()"]
