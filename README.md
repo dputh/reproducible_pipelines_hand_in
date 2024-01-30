@@ -1,7 +1,7 @@
 ## How to run the Pipeline
 
 - Clone the repository:
-  git clone git@github.com/dputh/reproducible_pipelines_hand_in.git
+  git clone git@github.com:dputh/reproducible_pipelines_hand_in.git
 - Build the docker file (in the cloned repository):
   docker build -t pipe .
 - Run the docker image (change /absolute/path/ to the path of the cloned repository):
